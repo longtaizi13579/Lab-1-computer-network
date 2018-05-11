@@ -1,0 +1,13 @@
+D:\gitKraken\Lab1-Windows\Lab-1 computer network\datalink.exe a 
+=========================================================================
+                          Station A                                 
+-------------------------------------------------------------------------
+Protocol.lib, version 3.0, Build: Oct 19 2009 (jiangy@public3.bta.net.cn)
+Channel: 8000 bps, 270 ms propagation delay, bit error rate 1.0E-005
+Log file "D:\gitKraken\Lab1-Windows\Lab-1 computer network\datalink-A.log", TCP port 59144, debug mask 0x00
+Station A is waiting for station B on TCP port 59144 ... Done.
+New epoch: Sat May 12 00:01:54 2018
+=========================================================================
+Designed by Jiang Yanjun, build: May 11 2018  23:27:53
+3.424 .... 3 packets received, 2890 bps, 36.12%, Err 1 (5.3e-005)
+5.544 .... 11 packets received, 5306 bps, 66.32%, Err 1 (2.8e-005)

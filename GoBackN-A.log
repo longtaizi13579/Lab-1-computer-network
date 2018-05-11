@@ -1,0 +1,26 @@
+GoBackN.exe -a -u 
+=========================================================================
+                          Station A                                 
+-------------------------------------------------------------------------
+Protocol.lib, version 3.0, Build: Oct 19 2009 (jiangy@public3.bta.net.cn)
+Channel: 8000 bps, 270 ms propagation delay, bit error rate 1.0E-005
+Log file "GoBackN-A.log", TCP port 59144, debug mask 0x00
+Station A is waiting for station B on TCP port 59144 ... Done.
+New epoch: Tue May 01 15:01:03 2018
+=========================================================================
+Designed by Jiang Yanjun, build: Oct 19 2009  22:57:25
+Protocol Options: Piggybacking (Enabled), NAK (Enabled)
+3.420 .... 3 packets received, 2858 bps, 35.72%, Err 1 (5.3e-005)
+5.543 .... 11 packets received, 5272 bps, 65.90%, Err 1 (2.8e-005)
+7.650 .... 19 packets received, 6099 bps, 76.24%, Err 1 (1.9e-005)
+9.764 .... 27 packets received, 6510 bps, 81.38%, Err 1 (1.4e-005)
+11.876 .... 35 packets received, 6758 bps, 84.48%, Err 1 (1.2e-005)
+13.997 .... 43 packets received, 6919 bps, 86.49%, Err 1 (9.7e-006)
+16.092 .... 51 packets received, 7047 bps, 88.09%, Err 1 (8.3e-006)
+18.205 .... 59 packets received, 7135 bps, 89.19%, Err 2 (1.5e-005)
+20.329 .... 67 packets received, 7200 bps, 89.99%, Err 2 (1.3e-005)
+22.452 .... 75 packets received, 7251 bps, 90.64%, Err 2 (1.2e-005)
+24.563 .... 83 packets received, 7298 bps, 91.22%, Err 2 (1.1e-005)
+26.671 .... 91 packets received, 7337 bps, 91.71%, Err 2 (9.8e-006)
+28.796 .... 99 packets received, 7366 bps, 92.07%, Err 2 (9.0e-006)
+31.951 .... 106 packets received, 7076 bps, 88.45%, Err 3 (1.2e-005)
