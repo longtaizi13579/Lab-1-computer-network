@@ -60,6 +60,16 @@ static void send_ack_frame(void)
     dbg_frame("Send ACK  %d\n", s.ack);
     put_frame((unsigned char *)&s, 2);
 }
+static void send_nak_frame(void)
+{
+	struct FRAME s;
+	s.kind = FRAME_NAK;
+	s.ack = (frame_expected + MAX_SEQ) % (MAX_SEQ + 1);;
+	//ack_expected=(ack_expected+1)%(MAX_SEQ+1);
+	dbg_frame("Send NAK  %d\n", s.ack);
+	put_frame((unsigned char *)&s, 2);
+
+}
 
 int main(int argc, char **argv)
 {
@@ -96,7 +106,7 @@ int main(int argc, char **argv)
 			len = recv_frame((unsigned char *)&f, sizeof f);//把帧放到f中
             if (len < 5 || crc32((unsigned char *)&f, len) != 0) {//若是坏帧
                 dbg_event("**** Receiver Error, Bad CRC Checksum\n");
-				send_ack_frame();
+				send_nak_frame();
                 break;
             }
 			if (f.kind == FRAME_ACK) //收到ACK
@@ -114,6 +124,21 @@ int main(int argc, char **argv)
 					send_data_frame();
 					frame_nr = (frame_nr + 1) % (MAX_SEQ + 1);
 				}*/
+			}
+			if(f.kind == FRAME_NAK){//收到NAK
+				dbg_frame("Recv NAK  %d\n", f.ack);
+				while (between(ack_expected, f.ack, frame_nr)) {
+					nbuffered--;
+					stop_timer(ack_expected);
+					//dbg_frame("helloworld\n");
+					ack_expected = (1 + ack_expected) % (MAX_SEQ + 1);
+				}
+				frame_nr = (f.ack + 1) % (MAX_SEQ + 1);
+				for (int i = 1; i <= nbuffered; i++)
+				{
+					send_data_frame();
+					frame_nr = (frame_nr + 1) % (MAX_SEQ + 1);
+				}
 			}
 			if (f.kind == FRAME_DATA) {//收到数据
                 dbg_frame("Recv DATA %d %d, ID %d\n", f.seq, f.ack, *(short *)f.data);
