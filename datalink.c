@@ -4,8 +4,8 @@
 #include "protocol.h"
 #include "datalink.h"
 
-#define DATA_TIMER  8000
-#define ack_timer 1500
+#define DATA_TIMER  2500
+#define ack_timer 150
 struct FRAME { 
     unsigned char kind; /* FRAME_DATA */
     unsigned char ack;
@@ -108,12 +108,12 @@ int main(int argc, char **argv)
 					//dbg_frame("helloworld\n");
 					ack_expected = (1 + ack_expected) % (MAX_SEQ + 1);
 				}
-				frame_nr = (f.ack + 1) % (MAX_SEQ + 1);
+				/*frame_nr = (f.ack + 1) % (MAX_SEQ + 1);
 				for (int i = 1; i <= nbuffered; i++)
 				{
 					send_data_frame();
 					frame_nr = (frame_nr + 1) % (MAX_SEQ + 1);
-				}
+				}*/
 			}
 			if (f.kind == FRAME_DATA) {//收到数据
                 dbg_frame("Recv DATA %d %d, ID %d\n", f.seq, f.ack, *(short *)f.data);
